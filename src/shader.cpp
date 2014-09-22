@@ -5,13 +5,13 @@
 #include <string>
 #include <sstream>
 
-#if defined(__APPLE__) || defined(USE_GL)
+#if defined(USE_GL)
 #define GL_GLEXT_PROTOTYPES
+#if defined(__APPLE__)
 #include <OpenGL/gl.h>
-#elif USE_GL
-#ifdef USE_GL
-#define GL_GLEXT_PROTOTYPES
+#else
 #include <GL/gl.h>
+#endif
 #endif
 
 #ifdef USE_GLES

@@ -14,12 +14,13 @@ extern "C" {
 #ifdef USE_GLES
 #include <GLES2/gl2.h>
 #endif
-#if defined(__APPLE__) || defined(USE_GL)
+#if defined(USE_GL)
 #define GL_GLEXT_PROTOTYPES
+#if defined(__APPLE__)
 #include <OpenGL/gl.h>
-#elif USE_GL
-#define GL_GLEXT_PROTOTYPES
+#else
 #include <GL/gl.h>
+#endif
 #endif
 }
 
