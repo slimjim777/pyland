@@ -34,7 +34,7 @@ extern "C" {
 #include <GL/gl.h>
 #endif
 
-#ifdef __APPLE__ && USE_GL
+#if defined(__APPLE__) || defined(USE_GL)
 #define GL_GLEXT_PROTOTYPES
 #include <OpenGL/gl.h>
 #elif USE_GL

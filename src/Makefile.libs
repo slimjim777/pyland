@@ -83,7 +83,12 @@ TMXPARSER_LDLIBS   = -ltmxparser
 
 
 
+ifeq "$(shell uname)" "Darwin"
+ZLIB_CPPFLAGS = -I/usr/include
+ZLIB_LDLIBS   = -L/usr/lib
+else
 ZLIB_CPPFLAGS = $(shell pkg-config zlib --cflags)
 ZLIB_CXXFLAGS =
 ZLIB_LDFLAGS  =
 ZLIB_LDLIBS   = $(shell pkg-config zlib --libs)
+endif
