@@ -17,10 +17,15 @@ GLOG_LDLIBS   = $(shell pkg-config libglog --libs)
 
 
 ifeq "$(PLATFORM)" "desktop"
+ifeq "$(shell uname)" "Darwin"
+	GL_LDFLAGS  = -framework OpenGl
+else
+
 	GL_CPPFLAGS = $(shell pkg-config gl --cflags)
 	GL_CXXFLAGS =
 	GL_LDFLAGS  =
 	GL_LDLIBS   = $(shell pkg-config gl --libs)
+endif
 
 	GRAPHICS_CPPFLAGS = $(GL_CPPFLAGS)
 	GRAPHICS_CXXFLAGS = $(GL_CXXFLAGS)
