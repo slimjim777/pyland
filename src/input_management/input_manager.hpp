@@ -22,9 +22,13 @@ extern "C" {
 #include "lifeline_controller.hpp"
 #include "mouse_state.hpp"
 
+#ifdef __APPLE__
+#include "input_management/keyboard_input_event.hpp"
+#include "input_management/mouse_input_event.hpp"
+#else
 struct KeyboardInputEvent;
 struct MouseInputEvent;
-
+#endif
 
 #ifndef INSERTION_ORDER
 #define INSERTION_ORDER
