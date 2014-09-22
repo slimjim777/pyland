@@ -12,12 +12,12 @@ debug: all
 # The other makefile
 #
 
-tmx-parser/libtmxparser.a: tmx-parser/Makefile.linux
+tmx-parser/libtmxparser.dylib: tmx-parser/Makefile.osx
 	@echo "${bold}[ Compiling tmx-parser library ]${normal}"
 	@if [ "$(SANITIZE)" == "1" ]; then                          \
-		$(MAKE) -C tmx-parser -f Makefile.linux;                \
+		$(MAKE) -C tmx-parser -f Makefile.osx;                \
 	else                                                        \
-		$(MAKE) CXXFLAGS=-fPIC -C tmx-parser -f Makefile.linux; \
+		$(MAKE) CXXFLAGS=-fPIC -C tmx-parser -f Makefile.osx; \
 	fi                                                          \
 
 
@@ -229,7 +229,7 @@ clean: dependencies dependencies/python_embed dependencies/challenges dependenci
 
 veryclean: clean
 	@-$(RM) $(PYTHON_HEADER).gch $(PYTHON_HEADER).pch
-	@-$(MAKE) -C tmx-parser -f Makefile.linux clean
+	@-$(MAKE) -C tmx-parser -f Makefile.osx clean
 	@echo "${bold}${green}Made very clean${normal}"
 
 -include ${HEADER_DEPENDS}
