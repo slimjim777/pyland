@@ -55,7 +55,7 @@ $(EXECUTABLE): $(BASE_OBJS)              \
                $(GUI_OBJS)               \
                $(INPUT_OBJS)             \
                $(PYTHON_OBJS)            \
-               tmx-parser/libtmxparser.a \
+               tmx-parser/libtmxparser.dylib \
                | dependencies            \
 
 	@echo "${bold}${green}[ Compiling $(EXECUTABLE) ]${normal}"
