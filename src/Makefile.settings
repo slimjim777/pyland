@@ -20,6 +20,7 @@ WARNINGS = \
 CXXFLAGS = \
 	-std=c++11   \
 	-O3          \
+	-D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0 \
 	${WARNINGS}  \
 	${CXX_EXTRA} \
 
@@ -32,6 +33,7 @@ CPPFLAGS = \
 	-I./python_embed      \
 	-MMD -MP              \
 	-MF dependencies/$*.d \
+	-D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0 \
 	${CPP_EXTRA}          \
 
 LDFLAGS =
