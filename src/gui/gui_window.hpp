@@ -4,15 +4,15 @@
 #include <utility>
 #include <vector>
 
-#ifdef USE_GL
+#if defined(USE_GL)
 #define GL_GLEXT_PROTOTYPES
+#if defined(__APPLE__)
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
 #endif
+#endif
 
-#if defined(__APPLE__) || defined(USE_GL)
-#define GL_GLEXT_PROTOTYPES
-#include <OpenGL/gl.h>
-#elif USE_GL
 #ifdef USE_GLES
 #include <GLES2/gl2.h>
 #endif

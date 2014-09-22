@@ -8,13 +8,13 @@
 #include <GLES2/gl2.h>
 #endif
 
-#if defined(__APPLE__) || defined(USE_GL)
+#if defined(USE_GL)
 #define GL_GLEXT_PROTOTYPES
+#if defined(__APPLE__)
 #include <OpenGL/gl.h>
-#elif USE_GL
-#ifdef USE_GL
-#define GL_GLEXT_PROTOTYPES
+#else
 #include <GL/gl.h>
+#endif
 #endif
 std::vector<std::pair<GLfloat*, int>> GUIWindow::generate_this_vertex_data() {
     delete []vertex_data;
