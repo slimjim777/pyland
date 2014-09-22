@@ -28,21 +28,18 @@
 #include "shader.hpp"
 #include "sprite.hpp"
 
-extern "C" {
 #ifdef USE_GL
 #define GL_GLEXT_PROTOTYPES
-#include <GL/gl.h>
-#endif
-
-#if defined(USE_GL)
-#define GL_GLEXT_PROTOTYPES
-#if defined(__APPLE__)
+#ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
 #endif
 #endif
 
+#ifdef USE_GLES
+#include <GLES2/gl2.h>
+#endif
 
 MapViewer::MapViewer(GameWindow *window, GUIManager *gui_manager):
     gui_manager(CHECK_NOTNULL(gui_manager)),
@@ -316,7 +313,7 @@ void MapViewer::render_gui() {
     gui_render_component->release_textures();
     gui_render_component->release_vbos();
     gui_render_component->release_shader();
-     
+
     gui_manager->render_text();
 }
 
