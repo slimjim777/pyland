@@ -14,7 +14,10 @@ extern "C" {
 #ifdef USE_GLES
 #include <GLES2/gl2.h>
 #endif
-#ifdef USE_GL
+#ifdef __APPLE__ && USE_GL
+#define GL_GLEXT_PROTOTYPES
+#include <OpenGL/gl.h>
+#elif USE_GL
 #define GL_GLEXT_PROTOTYPES
 #include <GL/gl.h>
 #endif

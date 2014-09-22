@@ -7,6 +7,9 @@ extern "C" {
 #include <GLES2/gl2.h>
 #endif
 
+#ifdef __APPLE__ && USE_GL
+#include <OpenGL/gl.h>
+#elif USE_GL
 #ifdef USE_GL
 #include <GL/gl.h>
 #endif

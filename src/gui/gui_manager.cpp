@@ -16,6 +16,10 @@
 #include "shader.hpp"
 #include "texture_atlas.hpp"
 
+#ifdef __APPLE__ && USE_GL
+#define GL_GLEXT_PROTOTYPES
+#include <OpenGL/gl.h>
+#elif USE_GL
 #ifdef USE_GL
 #define GL_GLEXT_PROTOTYPES
 #include <GL/gl.h>
